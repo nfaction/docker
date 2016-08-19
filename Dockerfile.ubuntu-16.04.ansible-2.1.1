@@ -1,0 +1,10 @@
+FROM ubuntu:16.04
+RUN apt-get update
+
+# Install Ansible
+RUN apt-get install -y software-properties-common git libyaml-dev libpython2.7-dev python-setuptools apt-transport-https python-pip libssl-dev
+RUN pip install ansible==2.1.1
+
+# Install Ansible inventory file
+RUN if [ ! -d "/etc/ansible" ]; then mkdir /etc/ansible; fi
+RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
