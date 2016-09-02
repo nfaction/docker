@@ -2,7 +2,7 @@ FROM centos:6
 
 # Install Ansible
 RUN yum groupinstall -y "development tools"
-RUN yum -y install epel-release git sudo python-devel python-setuptools python-crypto openssl-devel
+RUN yum -y install epel-release git sudo python-devel python-setuptools python-crypto openssl-devel libffi
 RUN easy_install pip
 RUN pip install httplib2 ansible
 
