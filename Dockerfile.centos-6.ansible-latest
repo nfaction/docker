@@ -2,8 +2,7 @@ FROM centos:6
 
 # Install Ansible
 RUN yum groupinstall -y "development tools"
-RUN yum -y install epel-release git sudo
-RUN yum -y install ansible
+RUN yum -y install epel-release git sudo ansible
 
 # Disable requiretty
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
