@@ -14,7 +14,9 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # Install Ansible
 RUN yum groupinstall -y "development tools"
-RUN yum -y install epel-release git sudo ansible
+RUN yum -y install epel-release git sudo python-devel python-setuptools python-crypto openssl-devel
+RUN easy_install pip
+RUN pip install httplib2 ansible
 
 # Disable requiretty
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
